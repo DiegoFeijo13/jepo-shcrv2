@@ -334,6 +334,8 @@
 "Assets/Scripts/Dungeon/Room.cs"
 "Assets/Scripts/Dungeon/RoomLightingControl.cs"
 "Assets/Scripts/Dungeon/RoomTemplateSO.cs"
+"Assets/Scripts/Enemies/Enemy.cs"
+"Assets/Scripts/Enemies/EnemyDetailSO.cs"
 "Assets/Scripts/Enums/Enums.cs"
 "Assets/Scripts/GameManager/GameManager.cs"
 "Assets/Scripts/GameManager/GameResources.cs"
@@ -381,6 +383,8 @@
 "Assets/Scripts/Weapons/Weapons/WeaponDetailsSO.cs"
 "Assets/Scripts/Weapons/Weapons/WeaponFiredEvent.cs"
 "Assets/Scripts/Weapons/Weapons/WeaponReloadedEvent.cs"
+"Assets/Scripts/Weapons/Weapons/WeaponShootEffect.cs"
+"Assets/Scripts/Weapons/Weapons/WeaponShootEffectSO.cs"
 -langversion:8.0
 
 /deterministic

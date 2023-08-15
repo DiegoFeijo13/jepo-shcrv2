@@ -131,7 +131,8 @@ public class PlayerControl : MonoBehaviour
     /// </summary>
     private void PlayerRoll(Vector3 direction)
     {
-        playerRollCoroutine = StartCoroutine(PlayerRollRoutine(direction));
+        //TODO: Make it as upgrade
+        //playerRollCoroutine = StartCoroutine(PlayerRollRoutine(direction));
     }
 
     /// <summary>

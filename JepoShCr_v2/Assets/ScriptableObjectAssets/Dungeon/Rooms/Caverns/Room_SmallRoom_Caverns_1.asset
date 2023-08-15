@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2708e4084c4a1534ba646096300f778c, type: 3}
+  m_Name: Room_SmallRoom_Caverns_1
+  m_EditorClassIdentifier: 
+  guid: 2663856064c934a46aa98e919f09ce55
+  prefab: {fileID: 3637056487621895528, guid: 658ced719e4bfa04089336f4ad3e5282, type: 3}
+  previousPrefab: {fileID: 3637056487621895528, guid: 658ced719e4bfa04089336f4ad3e5282, type: 3}
+  roomNodeType: {fileID: 11400000, guid: 977ebd963d142ac4784568fa9711180a, type: 2}
+  lowerBounds: {x: -6, y: -9}
+  upperBounds: {x: 27, y: 21}
+  doorwayList:
+  - position: {x: 6, y: 21}
+    orientation: 0
+    doorPrefab: {fileID: 4255878515426447952, guid: e0a60d4b5c165574ba54206e34a8321d, type: 3}
+    doorwayStartCopyPosition: {x: 3, y: 22}
+    doorwayCopyTileWidth: 5
+    doorwayCopyTileHeight: 9
+    isConnected: 0
+    isUnavailable: 0
+  - position: {x: 18, y: -9}
+    orientation: 2
+    doorPrefab: {fileID: 4255878515426447952, guid: e0a60d4b5c165574ba54206e34a8321d, type: 3}
+    doorwayStartCopyPosition: {x: 15, y: -4}
+    doorwayCopyTileWidth: 5
+    doorwayCopyTileHeight: 6
+    isConnected: 0
+    isUnavailable: 0
+  - position: {x: 27, y: 7}
+    orientation: 1
+    doorPrefab: {fileID: 673323627840649796, guid: bfff140844dc5eb49b7888d06439d2a6, type: 3}
+    doorwayStartCopyPosition: {x: 23, y: 11}
+    doorwayCopyTileWidth: 5
+    doorwayCopyTileHeight: 6
+    isConnected: 0
+    isUnavailable: 0
+  - position: {x: -6, y: -1}
+    orientation: 3
+    doorPrefab: {fileID: 673323627840649796, guid: bfff140844dc5eb49b7888d06439d2a6, type: 3}
+    doorwayStartCopyPosition: {x: -6, y: 3}
+    doorwayCopyTileWidth: 5
+    doorwayCopyTileHeight: 6
+    isConnected: 0
+    isUnavailable: 0
+  spawnPositionArray:
+  - {x: 0, y: -1}
+  - {x: 6, y: 12}
+  - {x: 17, y: 1}

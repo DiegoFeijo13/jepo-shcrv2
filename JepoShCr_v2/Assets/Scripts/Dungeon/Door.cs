@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 [DisallowMultipleComponent]
 public class Door : MonoBehaviour
 {
@@ -18,7 +17,6 @@ public class Door : MonoBehaviour
     private BoxCollider2D doorTrigger;
     private bool isOpen = false;
     private bool previouslyOpened = false;
-    private Animator animator;
 
     private void Awake()
     {
@@ -26,7 +24,6 @@ public class Door : MonoBehaviour
         doorCollider.enabled = false;
 
         // Load components
-        animator = GetComponent<Animator>();
         doorTrigger = GetComponent<BoxCollider2D>();
     }
 
@@ -38,12 +35,6 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        // When the parent gameobject is disabled (when the player moves far enough away from the
-        // room) the animator state gets reset. Therefore we need to restore the animator state.
-        animator.SetBool(Settings.open, isOpen);
-    }
 
 
     /// <summary>
@@ -58,11 +49,9 @@ public class Door : MonoBehaviour
             doorCollider.enabled = false;
             doorTrigger.enabled = false;
 
-            // Set open parameter in animator
-            animator.SetBool(Settings.open, true);
 
             // play sound effect
-            SoundEffectManager.Instance.PlaySoundEffect(GameResources.Instance.doorOpenCloseSoundEffect);
+            //SoundEffectManager.Instance.PlaySoundEffect(GameResources.Instance.doorOpenCloseSoundEffect);
         }
     }
 
@@ -75,8 +64,6 @@ public class Door : MonoBehaviour
         doorCollider.enabled = true;
         doorTrigger.enabled = false;
 
-        // set open to false to close door
-        animator.SetBool(Settings.open, false);
     }
 
     /// <summary>

@@ -136,7 +136,6 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
         // Start with no room overlaps
         bool noRoomOverlaps = true;
 
-
         // Process open room nodes queue
         noRoomOverlaps = ProcessRoomsInOpenRoomNodeQueue(roomNodeGraph, openRoomNodeQueue, noRoomOverlaps);
 

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2708e4084c4a1534ba646096300f778c, type: 3}
+  m_Name: Room_LargeRoom_Caverns_1
+  m_EditorClassIdentifier: 
+  guid: e89a7b2b570e2cb44b8af7c5cd188f23
+  prefab: {fileID: 3637056487621895528, guid: 6ffa56118d98817478367674e10a4b34, type: 3}
+  previousPrefab: {fileID: 3637056487621895528, guid: 6ffa56118d98817478367674e10a4b34, type: 3}
+  roomNodeType: {fileID: 11400000, guid: b13251ff4c34a00479ba22d000f694f7, type: 2}
+  lowerBounds: {x: -5, y: -54}
+  upperBounds: {x: 64, y: 5}
+  doorwayList:
+  - position: {x: 24, y: 5}
+    orientation: 0
+    doorPrefab: {fileID: 4255878515426447952, guid: e0a60d4b5c165574ba54206e34a8321d, type: 3}
+    doorwayStartCopyPosition: {x: 20, y: 6}
+    doorwayCopyTileWidth: 7
+    doorwayCopyTileHeight: 7
+    isConnected: 0
+    isUnavailable: 0
+  - position: {x: 52, y: -54}
+    orientation: 2
+    doorPrefab: {fileID: 4255878515426447952, guid: e0a60d4b5c165574ba54206e34a8321d, type: 3}
+    doorwayStartCopyPosition: {x: 48, y: -49}
+    doorwayCopyTileWidth: 7
+    doorwayCopyTileHeight: 6
+    isConnected: 0
+    isUnavailable: 0
+  - position: {x: 64, y: -46}
+    orientation: 1
+    doorPrefab: {fileID: 673323627840649796, guid: bfff140844dc5eb49b7888d06439d2a6, type: 3}
+    doorwayStartCopyPosition: {x: 59, y: -42}
+    doorwayCopyTileWidth: 6
+    doorwayCopyTileHeight: 6
+    isConnected: 0
+    isUnavailable: 0
+  - position: {x: 5, y: -35}
+    orientation: 3
+    doorPrefab: {fileID: 673323627840649796, guid: bfff140844dc5eb49b7888d06439d2a6, type: 3}
+    doorwayStartCopyPosition: {x: 5, y: -31}
+    doorwayCopyTileWidth: 6
+    doorwayCopyTileHeight: 6
+    isConnected: 0
+    isUnavailable: 0
+  spawnPositionArray:
+  - {x: 4, y: -34}
+  - {x: 29, y: -25}
+  - {x: 52, y: -45}

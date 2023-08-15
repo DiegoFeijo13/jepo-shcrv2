@@ -130,9 +130,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         previousRoom = currentRoom;
         currentRoom = room;
-
-        //// Debug
-        //Debug.Log(room.prefab.name.ToString());
     }
 
 
