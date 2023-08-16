@@ -35,6 +35,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2818921970432333141, guid: fa6778f0e8d7b084499320000739564e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4436630799401773276, guid: fa6778f0e8d7b084499320000739564e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -79,6 +83,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4922589269866519357, guid: fa6778f0e8d7b084499320000739564e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922589269866519357, guid: fa6778f0e8d7b084499320000739564e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734391470424380648, guid: fa6778f0e8d7b084499320000739564e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6214789673240605318, guid: fa6778f0e8d7b084499320000739564e, type: 3}
       propertyPath: m_Name
       value: Floater_Bronze
@@ -87,5 +103,9 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8952928735141131421, guid: fa6778f0e8d7b084499320000739564e, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa6778f0e8d7b084499320000739564e, type: 3}

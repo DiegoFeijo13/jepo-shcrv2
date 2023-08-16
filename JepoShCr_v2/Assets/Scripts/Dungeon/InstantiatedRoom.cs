@@ -15,6 +15,7 @@ public class InstantiatedRoom : MonoBehaviour
     [HideInInspector] public Tilemap frontTilemap;
     [HideInInspector] public Tilemap collisionTilemap;
     [HideInInspector] public Tilemap minimapTilemap;
+    [HideInInspector] public int[,] aStarMovementPenalty;
     [HideInInspector] public Bounds roomColliderBounds;
 
     private BoxCollider2D boxCollider2D;
@@ -50,6 +51,8 @@ public class InstantiatedRoom : MonoBehaviour
         PopulateTilemapMemberVariables(roomGameobject);
 
         BlockOffUnusedDoorWays();
+
+        AddObstaclesAndPreferredPaths();
 
         AddDoorsToRooms();
             
@@ -214,6 +217,41 @@ public class InstantiatedRoom : MonoBehaviour
 
             }
 
+        }
+    }
+
+    /// <summary>
+    /// Update obstacles used by AStar pathfinding
+    /// </summary>
+    private void AddObstaclesAndPreferredPaths()
+    {
+        var roomXBounds = room.templateUpperBounds.x - room.templateLowerBounds.x + 1;
+        var roomYBounds = room.templateUpperBounds.y - room.templateLowerBounds.y + 1;
+
+        aStarMovementPenalty = new int[roomXBounds, roomYBounds];
+
+        for (int x = 0; x < roomXBounds; x++)
+        {
+            for (int y = 0; y < roomYBounds; y++)
+            {
+                aStarMovementPenalty[x, y] = Settings.defaultAStarMovementPenalty;
+
+                var tile = collisionTilemap.GetTile(new Vector3Int(x + room.templateLowerBounds.x, y + room.templateLowerBounds.y, 0));
+
+                foreach(var collisionTile in GameResources.Instance.enemyUnwalkableCollisionTilesArray)
+                {
+                    if(tile == collisionTile)
+                    {
+                        aStarMovementPenalty[x, y] = 0;
+                        break;
+                    }
+                }
+
+                if(tile == GameResources.Instance.preferredEnemyPathTile)
+                {
+                    aStarMovementPenalty[x, y] = Settings.preferredPathAStarMovementPenalty;
+                }
+            }
         }
     }
 

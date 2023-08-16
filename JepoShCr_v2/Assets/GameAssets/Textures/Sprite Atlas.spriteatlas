@@ -216,6 +216,18 @@ SpriteAtlas:
   - {fileID: 21300000, guid: dd30a7b8393b121488a6811ade506ec0, type: 3}
   - {fileID: 21300000, guid: dffae6f834a0d78429bab762243ff160, type: 3}
   - {fileID: 21300000, guid: 6f3eb6092a15ad84b8d83921de3017de, type: 3}
+  - {fileID: -7354541917022885869, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: 2327235884221924181, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: 6084362239698263694, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: -1206485105952377450, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: -9207956712041253148, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: 5020833796227807481, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: -6427773164961398344, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: 4025674622185165378, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: -7540832891146820211, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: 46056310608068758, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: -7485271237548350277, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
+  - {fileID: 5728283047147966512, guid: 18b8a709364e39b43918ba06fe936f37, type: 3}
   - {fileID: 21300000, guid: b56d1069ab964ac4ba158a23f453d0df, type: 3}
   - {fileID: 21300000, guid: 4ecfc96944866f14aba627df45ed3ee4, type: 3}
   - {fileID: 21300000, guid: 2af67b7921faa3d4c81875f4487ad0d0, type: 3}
@@ -493,6 +505,18 @@ SpriteAtlas:
   - blood_red18
   - wall_blood07_e
   - minimap_wall
+  - Floater_10
+  - Floater_11
+  - Floater_9
+  - Floater_8
+  - Floater_3
+  - Floater_2
+  - Floater_1
+  - Floater_0
+  - Floater_7
+  - Floater_6
+  - Floater_5
+  - Floater_4
   - wall_blood16_e
   - wall_blood03_s
   - Bullet6x6
