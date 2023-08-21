@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 989bab61aa2418a44accc66068351d54, type: 2}
+    - target: {fileID: 2067944690483605960, guid: fa6778f0e8d7b084499320000739564e, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f85a2ad329ef904099517e0e5cf3580, type: 2}
     - target: {fileID: 2304501575990225343, guid: fa6778f0e8d7b084499320000739564e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -83,6 +87,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4823593029148598520, guid: fa6778f0e8d7b084499320000739564e, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: c46760a159d597d418a5d937db52bf17, type: 2}
     - target: {fileID: 4922589269866519357, guid: fa6778f0e8d7b084499320000739564e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
