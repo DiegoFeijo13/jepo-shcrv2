@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -6,6 +7,7 @@ using UnityEngine.Rendering;
 [RequireComponent (typeof(MovementToPosition))]
 [RequireComponent (typeof(MovementToPositionEvent))]
 [RequireComponent (typeof(Idle))]
+[RequireComponent (typeof(AnimateEnemy))]
 [RequireComponent (typeof(IdleEvent))]
 [RequireComponent (typeof(SortingGroup))]
 [RequireComponent (typeof(SpriteRenderer))]
@@ -18,8 +20,7 @@ using UnityEngine.Rendering;
 [DisallowMultipleComponent]
 public class Enemy : MonoBehaviour
 {
-    public EnemyDetailSO enemyDetails;    
-
+    [HideInInspector] public EnemyDetailSO enemyDetails;    
     [HideInInspector] public SpriteRenderer[] spriteRendererArray;
     [HideInInspector] public Animator animator;
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
@@ -39,5 +40,25 @@ public class Enemy : MonoBehaviour
         circleCollider2D = GetComponent<CircleCollider2D>();
         polygonCollider2D = GetComponent<PolygonCollider2D>();
         enemyMovementAI = GetComponent<EnemyMovementAI>();
+    }
+
+    public void EnemyInitialization(EnemyDetailSO enemyDetails, int enemySpawnNumber, DungeonLevelSO dungeonLevel)
+    {
+        this.enemyDetails = enemyDetails;
+
+        SetEnemyMovementUpdateFrame(enemySpawnNumber);
+
+        SetEnemyAnimationSpeed();
+    }
+
+    private void SetEnemyMovementUpdateFrame(int enemySpawnNumber)
+    {
+        int updateFrame = enemySpawnNumber % Settings.targetFrameRateToSpreadPathfindingOver;
+        enemyMovementAI.SetUpdateFrameNumber(updateFrame);
+    }
+
+    private void SetEnemyAnimationSpeed()
+    {
+        animator.speed = enemyMovementAI.moveSpeed / Settings.baseSpeedForEnemyAnimations;
     }
 }

@@ -44,23 +44,6 @@ public class InstantiatedRoom : MonoBehaviour
     }
 
     /// <summary>
-    /// Initialise The Instantiated Room
-    /// </summary>
-    public void Initialise(GameObject roomGameobject)
-    {
-        PopulateTilemapMemberVariables(roomGameobject);
-
-        BlockOffUnusedDoorWays();
-
-        AddObstaclesAndPreferredPaths();
-
-        AddDoorsToRooms();
-            
-        DisableCollisionTilemapRenderer();
-
-    }
-
-    /// <summary>
     /// Populate the tilemap and grid memeber variables.
     /// </summary>
     private void PopulateTilemapMemberVariables(GameObject roomGameobject)
@@ -316,7 +299,6 @@ public class InstantiatedRoom : MonoBehaviour
 
     }
 
-
     /// <summary>
     /// Disable collision tilemap renderer
     /// </summary>
@@ -327,4 +309,37 @@ public class InstantiatedRoom : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Initialise The Instantiated Room
+    /// </summary>
+    public void Initialize(GameObject roomGameobject)
+    {
+        PopulateTilemapMemberVariables(roomGameobject);
+
+        BlockOffUnusedDoorWays();
+
+        AddObstaclesAndPreferredPaths();
+
+        AddDoorsToRooms();
+
+        DisableCollisionTilemapRenderer();
+
+    }
+
+    public void DisableRoomCollider()
+    {
+        boxCollider2D.enabled = false;
+    }
+
+    public void LockDoors()
+    {
+        var doorArray = GetComponentsInChildren<Door>();
+
+        foreach (var door in doorArray)
+        {
+            door.LockDoor();
+        }
+
+        DisableRoomCollider();
+    }
 }

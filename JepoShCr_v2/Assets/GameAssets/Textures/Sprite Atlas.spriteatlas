@@ -83,6 +83,15 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 182ced8158666ec42870926d8f05a8c1, type: 3}
   - {fileID: 21300000, guid: e0091db1869face4a9c5d55e69e8dfb2, type: 3}
   - {fileID: 21300000, guid: 9dd627c1e92201e4d8693494984ae55e, type: 3}
+  - {fileID: -7508267197504729818, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
+  - {fileID: 22952004567885150, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
+  - {fileID: 5657378464608720654, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
+  - {fileID: -3284481758582174370, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
+  - {fileID: 2709277018334862331, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
+  - {fileID: -742029115997353390, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
+  - {fileID: 4976225942527435012, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
+  - {fileID: 7673461218697429293, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
+  - {fileID: 1848016385323555593, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
   - {fileID: 21300000, guid: 59779ee12d881ea4fb595e39bb306f01, type: 3}
   - {fileID: 21300000, guid: 9e2866f15ebb3f348bc370cb5e808195, type: 3}
   - {fileID: -1003765327900129188, guid: 4c58b012f80f1914dbac19b5f6950640, type: 3}
@@ -312,7 +321,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4a9fec5d9589cb340857d58661969a05, type: 3}
   - {fileID: 21300000, guid: 82d7346da65b92f479ecc99c61f5761b, type: 3}
   - {fileID: 21300000, guid: 5eca2c8da93c03344a8173e1aa98a7fc, type: 3}
-  - {fileID: 21300000, guid: 0b54809d5e2e7354daf35d2fd5ed0610, type: 3}
   - {fileID: 21300000, guid: 0061689dcaa58a947b3c6167af233a4f, type: 3}
   - {fileID: 21300000, guid: 479e75bd876174c49a56fed82a58cec0, type: 3}
   - {fileID: 21300000, guid: 7674deddb0c4e7f478fb0796cc6d8d63, type: 3}
@@ -372,6 +380,15 @@ SpriteAtlas:
   - wall_blood06_e
   - wall_old_blood00
   - wall_blood10_s
+  - Skully_2
+  - Skully_3
+  - Skully_0
+  - Skully_1
+  - Skully_6
+  - Skully_7
+  - Skully_4
+  - Skully_5
+  - Skully_8
   - blood_red09
   - blood_green4
   - EdIddleRight_1
@@ -601,7 +618,6 @@ SpriteAtlas:
   - wall_blood18_w
   - wall_old_blood09
   - blood_red22
-  - EdHand
   - wall_blood18_e
   - wall_blood06_w
   - blood_green3

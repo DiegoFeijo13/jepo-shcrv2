@@ -22,6 +22,7 @@ public class EnemyMovementAI : MonoBehaviour
     private bool chasePlayer = false;
     
     [HideInInspector] public float moveSpeed;
+    [HideInInspector] public int updateFrameNumber { get; internal set; }
 
     private void Awake()
     {
@@ -46,6 +47,7 @@ public class EnemyMovementAI : MonoBehaviour
     /// </summary>
     private void MoveEnemy()
     {
+        //TODO: search nodes using binary heap
         currentEnemyPathRebuildCooldown -= Time.deltaTime;
 
         if(!chasePlayer && Vector3.Distance(transform.position, GameManager.Instance.GetPlayer().GetPlayerPosition()) < enemy.enemyDetails.chaseDistance)
@@ -54,6 +56,9 @@ public class EnemyMovementAI : MonoBehaviour
         }
 
         if (!chasePlayer)
+            return;
+
+        if (Time.frameCount % Settings.targetFrameRateToSpreadPathfindingOver != updateFrameNumber)
             return;
 
         if(currentEnemyPathRebuildCooldown <= 0f || (Vector3.Distance(playerReferencePosition, GameManager.Instance.GetPlayer().GetPlayerPosition()) > Settings.playerMoveDistanceToRebuildPath))
@@ -150,6 +155,8 @@ public class EnemyMovementAI : MonoBehaviour
 
         enemy.idleEvent.CallIdleEvent();
     }
+
+    public void SetUpdateFrameNumber(int updateFrameNumber) => this.updateFrameNumber = updateFrameNumber;
 
     #region Validation
 #if UNITY_EDITOR
