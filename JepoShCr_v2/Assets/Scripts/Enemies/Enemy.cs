@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 #region REQUIRE COMPONENTS
+[RequireComponent(typeof(HealthEvent))]
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(DestroyedEvent))]
+[RequireComponent(typeof(Destroyed))]
 [RequireComponent(typeof(EnemyWeaponAI))]
 [RequireComponent(typeof(AimWeaponEvent))]
 [RequireComponent(typeof(AimWeapon))]
@@ -47,6 +51,8 @@ public class Enemy : MonoBehaviour
     private MaterializeEffect materializeEffect;
     private FireWeapon fireWeapon;
     private SetActiveWeaponEvent setActiveWeaponEvent;
+    private HealthEvent healthEvent;
+    private Health health;
     
 
     private void Awake()
@@ -63,6 +69,32 @@ public class Enemy : MonoBehaviour
         fireWeaponEvent = GetComponent<FireWeaponEvent>();
         fireWeapon = GetComponent<FireWeapon>();
         setActiveWeaponEvent = GetComponent<SetActiveWeaponEvent>();
+        healthEvent = GetComponent<HealthEvent>();
+        health = GetComponent<Health>();
+    }
+
+    private void OnEnable()
+    {
+        healthEvent.OnHealthChanged += HealthEvent_OnHealthLost;
+    }
+
+    private void OnDisable()
+    {
+        healthEvent.OnHealthChanged -= HealthEvent_OnHealthLost;
+    }
+
+    private void HealthEvent_OnHealthLost(HealthEvent healthEvent, HealthEventArgs args)
+    {
+        if(args.healthAmount <= 0)
+        {
+            EnemyDestroyed();
+        }
+    }
+
+    private void EnemyDestroyed()
+    {
+        var destroyedEvent = GetComponent<DestroyedEvent>();
+        destroyedEvent.CallDestroyedEvent(false);
     }
 
     public void EnemyInitialization(EnemyDetailSO enemyDetails, int enemySpawnNumber, DungeonLevelSO dungeonLevel)
@@ -70,6 +102,8 @@ public class Enemy : MonoBehaviour
         this.enemyDetails = enemyDetails;
 
         SetEnemyMovementUpdateFrame(enemySpawnNumber);
+
+        SetEnemyStartingHealth(dungeonLevel);
 
         SetEnemyStartingWeapon();
 
@@ -99,6 +133,20 @@ public class Enemy : MonoBehaviour
     {
         int updateFrame = enemySpawnNumber % Settings.targetFrameRateToSpreadPathfindingOver;
         enemyMovementAI.SetUpdateFrameNumber(updateFrame);
+    }
+
+    private void SetEnemyStartingHealth(DungeonLevelSO dungeonLevel)
+    {
+        foreach (var enemyHealthDetails in enemyDetails.enemyHealthDetailsArray)
+        {
+            if(enemyHealthDetails.dungeonLevel == dungeonLevel)
+            {
+                health.SetStartingHealth(enemyHealthDetails.enemyHealthAmount);
+                return;
+            }
+        }
+
+        health.SetStartingHealth(Settings.defaultEnemyHealth);
     }
 
     private void SetEnemyAnimationSpeed()

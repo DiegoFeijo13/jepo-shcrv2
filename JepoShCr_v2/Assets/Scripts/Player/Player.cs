@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine.Rendering;
 
 
 #region REQUIRE COMPONENTS
+[RequireComponent(typeof(DestroyedEvent))]
+[RequireComponent(typeof(Destroyed))]
+[RequireComponent(typeof(HealthEvent))]
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(PlayerControl))]
 [RequireComponent(typeof(MovementByVelocityEvent))]
@@ -32,13 +36,12 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(Rigidbody2D))]
 [DisallowMultipleComponent]
 #endregion REQUIRE COMPONENTS
-
-
-
 public class Player : MonoBehaviour
 {
     [HideInInspector] public PlayerDetailsSO playerDetails;
+    [HideInInspector] public HealthEvent healthEvent;
     [HideInInspector] public Health health;
+    [HideInInspector] public DestroyedEvent destroyedEvent;
     [HideInInspector] public MovementByVelocityEvent movementByVelocityEvent;
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
     [HideInInspector] public IdleEvent idleEvent;
@@ -58,6 +61,8 @@ public class Player : MonoBehaviour
     {
         // Load components
         health = GetComponent<Health>();
+        healthEvent = GetComponent<HealthEvent>();
+        destroyedEvent = GetComponent<DestroyedEvent>();
         movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
         idleEvent = GetComponent<IdleEvent>();
@@ -85,6 +90,26 @@ public class Player : MonoBehaviour
 
         // Set player starting health
         SetPlayerHealth();
+    }
+
+    private void OnEnable()
+    {
+        healthEvent.OnHealthChanged += HealthEvent_OnHealthChanged;
+    }
+
+    private void OnDisable()
+    {
+        healthEvent.OnHealthChanged -= HealthEvent_OnHealthChanged;
+    }
+
+    private void HealthEvent_OnHealthChanged(HealthEvent healthEvent, HealthEventArgs args)
+    {
+        Debug.Log("Health Amount = " + args.healthAmount);
+
+        if(args.healthAmount <= 0 )
+        {
+            destroyedEvent.CallDestroyedEvent(true);
+        }
     }
 
     /// <summary>

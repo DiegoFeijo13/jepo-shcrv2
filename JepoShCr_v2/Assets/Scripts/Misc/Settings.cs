@@ -22,6 +22,7 @@ public static class Settings
      * dungeon building to fail since the rooms are more likely to not fit together; 
      */
     public const int maxChildCorridors = 3;
+    public const float doorUnlockDelay = 1f;
 
     #endregion
 
@@ -62,6 +63,10 @@ public static class Settings
     public const float playerMoveDistanceToRebuildPath = 3f;
     public const float enemyPathRebuidCooldown = 2f;
     #endregion ASTAR PATHFINDING PARAMETERS
+
+    #region ENEMY PARAMETERS
+    public const int defaultEnemyHealth = 20;
+    #endregion ENEMY PARAMETERS
 
     #region UI PARAMETERS
     public const float uiAmmoIconSpacing = 4f;

@@ -32,6 +32,7 @@ public class PlayerDetailsSO : ScriptableObject
     [Tooltip("Player starting health amount")]
     #endregion
     public int playerHealthAmount;
+    public float hitImmunityTime = 0;
 
     #region Header WEAPON
     [Space(10)]
@@ -72,6 +73,7 @@ public class PlayerDetailsSO : ScriptableObject
         HelperUtilities.ValidateCheckNullValue(this, nameof(playerHandSprite), playerHandSprite);
         HelperUtilities.ValidateCheckNullValue(this, nameof(runtimeAnimatorController), runtimeAnimatorController);
         HelperUtilities.ValidateCheckEnumerableValues(this, nameof(startingWeaponList), startingWeaponList);
+        HelperUtilities.ValidateCheckPositiveValue(this, nameof(hitImmunityTime), hitImmunityTime, true);
     }
 #endif
     #endregion
