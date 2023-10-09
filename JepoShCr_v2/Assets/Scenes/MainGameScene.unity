@@ -795,6 +795,7 @@ GameObject:
   - component: {fileID: 453881222}
   - component: {fileID: 453881221}
   - component: {fileID: 453881223}
+  - component: {fileID: 453881224}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -846,6 +847,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453881220}
   m_Enabled: 1
+--- !u!114 &453881224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453881220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c00e7139b743247a28f1f11a45343f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniMapCamera: {fileID: 1490474890}
 --- !u!1 &470571238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,9 +1486,9 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 33.75
+    OrthographicSize: 16.875
     NearClipPlane: 0.3
-    FarClipPlane: 5000
+    FarClipPlane: 2500
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -2453,10 +2467,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 5000
+  far clip plane: 2500
   field of view: 60
   orthographic: 1
-  orthographic size: 33.75
+  orthographic size: 16.875
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
