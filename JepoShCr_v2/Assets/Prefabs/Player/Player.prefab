@@ -209,6 +209,8 @@ GameObject:
   - component: {fileID: 745003498816059147}
   - component: {fileID: -4689688666494794677}
   - component: {fileID: 2513098318654676515}
+  - component: {fileID: 1384699540972605240}
+  - component: {fileID: 3569388573795882852}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -244,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDamageable: 1
+  enemy: {fileID: 0}
 --- !u!210 &7814897193867636802
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -420,7 +423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDetails: {fileID: 0}
+  healthEvent: {fileID: 0}
   health: {fileID: 0}
+  destroyedEvent: {fileID: 0}
   movementByVelocityEvent: {fileID: 0}
   movementToPositionEvent: {fileID: 0}
   idleEvent: {fileID: 0}
@@ -691,6 +696,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2d49a5d83eaff4ca2e93447dce0429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1384699540972605240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7814897193867636809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6f7b93fcb1846408fb6096c705e4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactDamageAmount: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 131072
+--- !u!114 &3569388573795882852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7814897193867636809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4f15e0d61452b42be6438311ff4da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactDamageAmount: 0
 --- !u!1 &7814897194538609615
 GameObject:
   m_ObjectHideFlags: 0

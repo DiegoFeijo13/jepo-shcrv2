@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+/JepoShCr_v2/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+/JepoShCr_v2/Logs/AssetImportWorker0.log
+/JepoShCr_v2/Logs/AssetImportWorker0-prev.log
