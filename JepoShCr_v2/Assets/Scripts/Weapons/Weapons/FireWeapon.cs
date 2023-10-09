@@ -173,7 +173,7 @@ public class FireWeapon : MonoBehaviour
             IFireable ammo = (IFireable)PoolManager.Instance.ReuseComponent(ammoPrefab, activeWeapon.GetShootPosition(), Quaternion.identity);
 
             // Initialise Ammo
-            ammo.InitialiseAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector);
+            ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector);
 
             // Wait for ammo per shot timegap
             yield return new WaitForSeconds(ammoSpawnInterval);

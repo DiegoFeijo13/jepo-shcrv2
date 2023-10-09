@@ -49,6 +49,11 @@ public class Ammo : MonoBehaviour, IFireable
 
         if (ammoRange < 0f)
         {
+            if (ammoDetails.isPlayerAmmo)
+            {
+                StaticEventHandler.CallMultiplierEvent(false);
+            }
+
             DisableAmmo();
         }
 
@@ -65,10 +70,29 @@ public class Ammo : MonoBehaviour, IFireable
 
     private void DealDamage(Collider2D collision)
     {
-        if(collision.TryGetComponent<Health>(out var health))
+        bool enemyHit = false;
+
+        if (collision.TryGetComponent<Health>(out var health))
         {
             isColliding = true;
             health.TakeDamage(ammoDetails.ammoDamage);
+
+            if (health.enemy != null)
+            {
+                enemyHit = true;
+            }
+        }
+
+        if (ammoDetails.isPlayerAmmo)
+        {
+            if (enemyHit)
+            {
+                StaticEventHandler.CallMultiplierEvent(true);
+            }
+            else
+            {
+                StaticEventHandler.CallMultiplierEvent(false);
+            }
         }
     }
 
@@ -77,7 +101,7 @@ public class Ammo : MonoBehaviour, IFireable
     /// weaponAimDirectionVector. If this ammo is part of a pattern the ammo movement can be
     /// overriden by setting overrideAmmoMovement to true
     /// </summary>
-    public void InitialiseAmmo(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, float ammoSpeed, Vector3 weaponAimDirectionVector, bool overrideAmmoMovement = false)
+    public void InitializeAmmo(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, float ammoSpeed, Vector3 weaponAimDirectionVector, bool overrideAmmoMovement = false)
     {
         #region Ammo
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,32 +6,15 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
-    #region Header DUNGEON LEVELS
-
-    [Space(10)]
-    [Header("DUNGEON LEVELS")]
-
-    #endregion Header DUNGEON LEVELS
-
-    #region Tooltip
-
-    [Tooltip("Populate with the dungeon level scriptable objects")]
-
-    #endregion Tooltip
-
     [SerializeField] private List<DungeonLevelSO> dungeonLevelList;
-
-    #region Tooltip
-
-    [Tooltip("Populate with the starting dungeon level for testing , first level = 0")]
-
-    #endregion Tooltip
-
     [SerializeField] private int currentDungeonLevelListIndex = 0;
+
     private Room currentRoom;
     private Room previousRoom;
     private PlayerDetailsSO playerDetails;
     private Player player;
+    private long gameScore;
+    private int scoreMultiplier;
 
     [HideInInspector] public GameState gameState;
     [HideInInspector] public GameState previousGameState;
@@ -65,33 +49,52 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void OnEnable()
     {
-        // Subscribe to room changed event.
         StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
+        StaticEventHandler.OnPointScored += StaticEventHandler_OnPointScored;
+        StaticEventHandler.OnMultiplier += StaticEventHandler_OnMultiplier;
     }
 
     private void OnDisable()
-    {
-        // Unsubscribe from room changed event
+    {        
         StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
+        StaticEventHandler.OnPointScored -= StaticEventHandler_OnPointScored;
+        StaticEventHandler.OnMultiplier -= StaticEventHandler_OnMultiplier;
 
     }
 
-    /// <summary>
-    /// Handle room changed event
-    /// </summary>
-    private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
+    private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs args)
     {
-        SetCurrentRoom(roomChangedEventArgs.room);
+        SetCurrentRoom(args.room);
     }
 
-    // Start is called before the first frame update
+    private void StaticEventHandler_OnPointScored(PointScoredArgs args)
+    {
+        gameScore += args.points * scoreMultiplier;
+
+        StaticEventHandler.CallScoreChangedEvent(gameScore, scoreMultiplier);
+    }
+
+    private void StaticEventHandler_OnMultiplier(MultiplierArgs args)
+    {
+        if (args.multiplier)
+            scoreMultiplier++;
+        else
+            scoreMultiplier--;
+
+        scoreMultiplier = Mathf.Clamp(scoreMultiplier, 1, 30);
+
+        StaticEventHandler.CallScoreChangedEvent(gameScore, scoreMultiplier);
+    }
+    
     private void Start()
     {
         previousGameState = GameState.gameStarted;
         gameState = GameState.gameStarted;
+
+        gameScore = 0;
+        scoreMultiplier = 1;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         HandleGameState();
