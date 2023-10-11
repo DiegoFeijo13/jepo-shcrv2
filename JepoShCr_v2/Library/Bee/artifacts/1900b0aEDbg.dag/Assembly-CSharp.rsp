@@ -351,6 +351,7 @@
 "Assets/Scripts/GameManager/ActivateRooms.cs"
 "Assets/Scripts/GameManager/GameManager.cs"
 "Assets/Scripts/GameManager/GameResources.cs"
+"Assets/Scripts/GameManager/SceneNames.cs"
 "Assets/Scripts/Health/DealContactDamage.cs"
 "Assets/Scripts/Health/Destroyed.cs"
 "Assets/Scripts/Health/DestroyedEvent.cs"

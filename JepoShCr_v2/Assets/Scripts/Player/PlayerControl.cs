@@ -22,30 +22,38 @@ public class PlayerControl : MonoBehaviour
     private WaitForFixedUpdate waitForFixedUpdate;
     private bool isPlayerRolling = false;
     private float playerRollCooldownTimer = 0f;
+    private bool isPlayerMovementDisabled = false;
 
     private void Awake()
-    {
-        // Load components
+    {        
         player = GetComponent<Player>();
-
         moveSpeed = movementDetails.GetMoveSpeed();
     }
 
     private void Start()
-    {
-        // Create waitforfixed update for use in coroutine
+    {        
         waitForFixedUpdate = new WaitForFixedUpdate();
 
-        // Set Starting Weapon
         SetStartingWeapon();
 
-        // Set player animation speed
         SetPlayerAnimationSpeed();
     }
 
-    /// <summary>
-    /// Set the player starting weapon
-    /// </summary>
+    private void Update()
+    {
+        if (isPlayerMovementDisabled)
+            return;
+
+        if (isPlayerRolling)
+            return;
+
+        MovementInput();
+
+        WeaponInput();
+
+        PlayerRollCooldownTimer();
+    }
+
     private void SetStartingWeapon()
     {
         int index = 1;
@@ -61,42 +69,23 @@ public class PlayerControl : MonoBehaviour
         }
 
     }
-    /// <summary>
-    /// Set player animator speed to match movement speed
-    /// </summary>
+
     private void SetPlayerAnimationSpeed()
     {
         // Set animator speed to match movement speed
         player.animator.speed = moveSpeed / Settings.baseSpeedForPlayerAnimations;
     }
 
-    private void Update()
-    {
-        // if player is rolling then return
-        if (isPlayerRolling) return;
 
-        // Process the player movement input
-        MovementInput();
 
-        // Process the player weapon input
-        WeaponInput();
-
-        // Player roll cooldown timer
-        PlayerRollCooldownTimer();
-    }
-
-    /// <summary>
-    /// Player movement input
-    /// </summary>
+  
     private void MovementInput()
     {
-        // Get movement input
         float horizontalMovement = Input.GetAxisRaw("Horizontal");
         float verticalMovement = Input.GetAxisRaw("Vertical");
         bool rightMouseButtonDown = Input.GetMouseButtonDown(1);
 
-        // Create a direction vector based on the input
-        Vector2 direction = new Vector2(horizontalMovement, verticalMovement);
+        var direction = new Vector2(horizontalMovement, verticalMovement);
 
         // Adjust distance for diagonal movement (pythagoras approximation)
         if (horizontalMovement != 0f && verticalMovement != 0f)
@@ -125,19 +114,13 @@ public class PlayerControl : MonoBehaviour
             player.idleEvent.CallIdleEvent();
         }
     }
-
-    /// <summary>
-    /// Player roll
-    /// </summary>
+    
     private void PlayerRoll(Vector3 direction)
     {
         //TODO: Make it as upgrade
         //playerRollCoroutine = StartCoroutine(PlayerRollRoutine(direction));
     }
-
-    /// <summary>
-    /// Player roll coroutine
-    /// </summary>
+    
     private IEnumerator PlayerRollRoutine(Vector3 direction)
     {
         // minDistance used to decide when to exit coroutine loop
@@ -173,26 +156,19 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Weapon Input
-    /// </summary>
     private void WeaponInput()
     {
         Vector3 weaponDirection;
         float weaponAngleDegrees, playerAngleDegrees;
         AimDirection playerAimDirection;
-
-        // Aim weapon input
+                
         AimWeaponInput(out weaponDirection, out weaponAngleDegrees, out playerAngleDegrees, out playerAimDirection);
-
-        // Fire weapon input
+                
         FireWeaponInput(weaponDirection, weaponAngleDegrees, playerAngleDegrees, playerAimDirection);
-
-        // Switch weapon input
-        SwitchWeaponInput();
-
-        // Reload weapon input
-        ReloadWeaponInput();
+                
+        //SwitchWeaponInput();
+                
+        //ReloadWeaponInput();
     }
 
     private void AimWeaponInput(out Vector3 weaponDirection, out float weaponAngleDegrees, out float playerAngleDegrees, out AimDirection playerAimDirection)
@@ -237,70 +213,70 @@ public class PlayerControl : MonoBehaviour
     private void SwitchWeaponInput()
     {
         // Switch weapon if mouse scroll wheel selecetd
-        if (Input.mouseScrollDelta.y < 0f)
-        {
-            PreviousWeapon();
-        }
+        //if (Input.mouseScrollDelta.y < 0f)
+        //{
+        //    PreviousWeapon();
+        //}
 
-        if (Input.mouseScrollDelta.y > 0f)
-        {
-            NextWeapon();
-        }
+        //if (Input.mouseScrollDelta.y > 0f)
+        //{
+        //    NextWeapon();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SetWeaponByIndex(1);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    SetWeaponByIndex(1);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SetWeaponByIndex(2);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    SetWeaponByIndex(2);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SetWeaponByIndex(3);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    SetWeaponByIndex(3);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SetWeaponByIndex(4);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    SetWeaponByIndex(4);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            SetWeaponByIndex(5);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha5))
+        //{
+        //    SetWeaponByIndex(5);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            SetWeaponByIndex(6);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha6))
+        //{
+        //    SetWeaponByIndex(6);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            SetWeaponByIndex(7);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha7))
+        //{
+        //    SetWeaponByIndex(7);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            SetWeaponByIndex(8);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha8))
+        //{
+        //    SetWeaponByIndex(8);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            SetWeaponByIndex(9);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha9))
+        //{
+        //    SetWeaponByIndex(9);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            SetWeaponByIndex(10);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha0))
+        //{
+        //    SetWeaponByIndex(10);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Minus))
-        {
-            SetCurrentWeaponToFirstInTheList();
-        }
+        //if (Input.GetKeyDown(KeyCode.Minus))
+        //{
+        //    SetCurrentWeaponToFirstInTheList();
+        //}
 
     }
 
@@ -316,27 +292,27 @@ public class PlayerControl : MonoBehaviour
 
     private void NextWeapon()
     {
-        currentWeaponIndex++;
+        //currentWeaponIndex++;
 
-        if (currentWeaponIndex > player.weaponList.Count)
-        {
-            currentWeaponIndex = 1;
-        }
+        //if (currentWeaponIndex > player.weaponList.Count)
+        //{
+        //    currentWeaponIndex = 1;
+        //}
 
-        SetWeaponByIndex(currentWeaponIndex);
+        //SetWeaponByIndex(currentWeaponIndex);
 
     }
 
     private void PreviousWeapon()
     {
-        currentWeaponIndex--;
+        //currentWeaponIndex--;
 
-        if (currentWeaponIndex < 1)
-        {
-            currentWeaponIndex = player.weaponList.Count;
-        }
+        //if (currentWeaponIndex < 1)
+        //{
+        //    currentWeaponIndex = player.weaponList.Count;
+        //}
 
-        SetWeaponByIndex(currentWeaponIndex);
+        //SetWeaponByIndex(currentWeaponIndex);
     }
 
     private void ReloadWeaponInput()
@@ -413,7 +389,15 @@ public class PlayerControl : MonoBehaviour
         currentWeaponIndex = 1;
 
         // Set current weapon
-        SetWeaponByIndex(currentWeaponIndex);
+        //SetWeaponByIndex(currentWeaponIndex);
+    }
+
+    public void EnablePlayer() => isPlayerMovementDisabled = false;
+
+    public void DisablePlayer()
+    {
+        isPlayerMovementDisabled = true;
+        player.idleEvent.CallIdleEvent();
     }
 
     #region Validation
