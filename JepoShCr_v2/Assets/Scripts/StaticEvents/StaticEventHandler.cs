@@ -7,6 +7,8 @@ public static class StaticEventHandler
     public static event Action<PointScoredArgs> OnPointScored;
     public static event Action<ScoreChangedArgs> OnScoreChanged;
     public static event Action<MultiplierArgs> OnMultiplier;
+    public static event Action<BossHealthUIArgs> OnBossHealthUI;
+    public static event Action<BossHealthChangeArgs> OnBossHealthChange;
 
     public static void CallRoomChangedEvent(Room room)
     {
@@ -31,6 +33,16 @@ public static class StaticEventHandler
     public static void CallMultiplierEvent(bool multiplier)
     {
         OnMultiplier?.Invoke(new MultiplierArgs() { multiplier = multiplier });
+    }
+
+    public static void CallBossHealthUIEvent(bool showBossHealthBar)
+    {
+        OnBossHealthUI?.Invoke(new BossHealthUIArgs() { showBossHealthBar = showBossHealthBar });
+    }
+
+    public static void CallBossHealthChangeEvent(float healthPercent)
+    {
+        OnBossHealthChange?.Invoke(new BossHealthChangeArgs() { healthPercent = healthPercent });
     }
 }
 
@@ -58,4 +70,14 @@ public class ScoreChangedArgs : EventArgs
 public class MultiplierArgs : EventArgs
 {
     public bool multiplier;
+}
+
+public class BossHealthUIArgs : EventArgs
+{
+    public bool showBossHealthBar;    
+}
+
+public class BossHealthChangeArgs : EventArgs
+{
+    public float healthPercent;
 }

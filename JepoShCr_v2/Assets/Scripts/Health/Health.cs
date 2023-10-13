@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent (typeof(HealthEvent))]
+[RequireComponent(typeof(HealthEvent))]
 [DisallowMultipleComponent]
 public class Health : MonoBehaviour
 {
+    [SerializeField] private HealthBar healthBar;
+
     private int startingHealth;
     private int currentHealth;
     private HealthEvent healthEvent;
@@ -32,32 +34,47 @@ public class Health : MonoBehaviour
         player = GetComponent<Player>();
         enemy = GetComponent<Enemy>();
 
-        if(player != null )
+        if (player != null)
         {
-            if(player.playerDetails.hitImmunityTime > 0f)
+            if (player.playerDetails.hitImmunityTime > 0f)
             {
                 immunityTime = player.playerDetails.hitImmunityTime;
                 spriteRenderer = player.spriteRenderer;
             }
-        } 
+        }
         else if (enemy != null)
         {
-            if(enemy.enemyDetails.hitImmunityTime > 0f)
+            if (enemy.enemyDetails.hitImmunityTime > 0f)
             {
                 immunityTime = enemy.enemyDetails.hitImmunityTime;
                 spriteRenderer = enemy.spriteRendererArray[0];
             }
         }
+
+        if (enemy != null && enemy.enemyDetails.isHealthBarDisplayed && healthBar != null)
+        {
+            healthBar.EnableHealthBar();
+        }
+        else if (healthBar != null)
+        {
+            healthBar.DisableHealthBar();
+        }
     }
 
     public void TakeDamage(int damageAmount)
     {
-        if(isDamageable)
+        if (isDamageable)
         {
             currentHealth -= damageAmount;
             CallHealthEvent(damageAmount);
 
             PostHitImmunity();
+
+            if(healthBar != null)
+            {
+                float healthPercent = (float)currentHealth / (float)startingHealth;
+                healthBar.SetHealthBarValue(healthPercent);
+            }
         }
     }
 
@@ -66,9 +83,9 @@ public class Health : MonoBehaviour
         if (!gameObject.activeSelf)
             return;
 
-        if(immunityTime > 0f)
+        if (immunityTime > 0f)
         {
-            if(immunityCoroutine != null)
+            if (immunityCoroutine != null)
                 StopCoroutine(immunityCoroutine);
 
             immunityCoroutine = StartCoroutine(PostHitImmunityCoroutine(immunityTime, spriteRenderer));
@@ -83,7 +100,7 @@ public class Health : MonoBehaviour
 
         var tmpColor = spriteRenderer.color;
 
-        while(iterations > 0)
+        while (iterations > 0)
         {
             tmpColor.a = 0f;
             spriteRenderer.color = tmpColor;

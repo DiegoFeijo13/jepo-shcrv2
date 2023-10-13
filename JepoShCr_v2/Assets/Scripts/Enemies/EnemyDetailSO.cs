@@ -8,20 +8,9 @@ public class EnemyDetailSO : ScriptableObject
     [Header("BASE ENEMY DETAILS")]
     #endregion
 
-    #region Tooltip
-    [Tooltip("The name of the enemy")]
-    #endregion
     public string enemyName;
-
-    #region Tooltip
-    [Tooltip("The prefab for the enemy")]
-    #endregion
     public GameObject enemyPrefab;
-
-    #region
-    [Tooltip("Distance to the player before enemy starts chasing")]
-    public float chaseDistance = 50f;
-    #endregion
+    public float chaseDistance = 50f;  
 
     #region Header ENEMY MATERIAL
     [Space(10)]
@@ -71,6 +60,7 @@ public class EnemyDetailSO : ScriptableObject
     public EnemyHealthDetails[] enemyHealthDetailsArray;
     public bool isImmuneAfterHit = false;
     public float hitImmunityTime;
+    public bool isHealthBarDisplayed = false;
 
 
     #region Validation

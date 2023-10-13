@@ -56,11 +56,6 @@ public class PlayerDetailsSO : ScriptableObject
     #endregion
     public Sprite playerMiniMapIcon;
 
-    #region Tooltip
-    [Tooltip("Player hand sprite")]
-    #endregion
-    public Sprite playerHandSprite;
-
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()
@@ -70,7 +65,6 @@ public class PlayerDetailsSO : ScriptableObject
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(playerHealthAmount), playerHealthAmount, false);
         HelperUtilities.ValidateCheckNullValue(this, nameof(startingWeapon), startingWeapon);
         HelperUtilities.ValidateCheckNullValue(this, nameof(playerMiniMapIcon), playerMiniMapIcon);
-        HelperUtilities.ValidateCheckNullValue(this, nameof(playerHandSprite), playerHandSprite);
         HelperUtilities.ValidateCheckNullValue(this, nameof(runtimeAnimatorController), runtimeAnimatorController);
         HelperUtilities.ValidateCheckEnumerableValues(this, nameof(startingWeaponList), startingWeaponList);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(hitImmunityTime), hitImmunityTime, true);

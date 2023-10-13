@@ -63,7 +63,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9258b37051240cb42b1425731966c1b7, type: 3}
   - {fileID: 21300000, guid: 0b97b470473b79b4d8e34efa441c3392, type: 3}
   - {fileID: 21300000, guid: 28a26d9099bc9744d81f4f12efbac4de, type: 3}
-  - {fileID: 21300000, guid: 40a84eb059b7e89408eee2ce9b8a63cf, type: 3}
   - {fileID: 21300000, guid: 5de27cf0a607633479ac07da9fa0b796, type: 3}
   - {fileID: -7508267197504729818, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
   - {fileID: 22952004567885150, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
@@ -74,8 +73,10 @@ SpriteAtlas:
   - {fileID: 4976225942527435012, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
   - {fileID: 7673461218697429293, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
   - {fileID: 1848016385323555593, guid: 61e70ac1425e56a46af2a2aa6c3fbb3a, type: 3}
+  - {fileID: 21300000, guid: a2297ef152361f745a2cc43dc0f5763b, type: 3}
   - {fileID: -1003765327900129188, guid: 4c58b012f80f1914dbac19b5f6950640, type: 3}
   - {fileID: -1638915521008931020, guid: 4c58b012f80f1914dbac19b5f6950640, type: 3}
+  - {fileID: 21300000, guid: e5e545c291993f4458163c3e33a1c39d, type: 3}
   - {fileID: 6533433893747176579, guid: 9bada7c24e7f5fd43b299d79547aa3cc, type: 3}
   - {fileID: 7175845881303760771, guid: 9bada7c24e7f5fd43b299d79547aa3cc, type: 3}
   - {fileID: 1661426159522099781, guid: 9bada7c24e7f5fd43b299d79547aa3cc, type: 3}
@@ -147,6 +148,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c26f7fc3b1773a641abc9cf53a88e53c, type: 3}
   - {fileID: 21300000, guid: 640bc7e3fb4fdfc4d9f0a8f1989ba069, type: 3}
   - {fileID: 21300000, guid: db49f8f4b7c88af46811bf606249679b, type: 3}
+  - {fileID: 21300000, guid: 2134b0d575f169740988cfeef79930e5, type: 3}
   - {fileID: 21300000, guid: bf1b1086dde0dda488fd55ef392bd7fa, type: 3}
   - {fileID: 21300000, guid: 8dc7ff07a94939d43b72d4134c88ffd9, type: 3}
   - {fileID: 21300000, guid: 099335470f0a97448b5634b13473722f, type: 3}
@@ -173,9 +175,12 @@ SpriteAtlas:
   - {fileID: 3917876701453223191, guid: 42f8c0d9632d1ce42aedb9ccbed6e370, type: 3}
   - {fileID: 21300000, guid: 4ad1d51a38a1285429f8a332a5fca141, type: 3}
   - {fileID: 21300000, guid: 4714117a61809f44c862fc5f42e4dd7d, type: 3}
+  - {fileID: 21300000, guid: 4974661bd81827b4bba5c782c4ebd160, type: 3}
+  - {fileID: 21300000, guid: 8f68f6ab3ceb4bd49b369a9127cc4cf7, type: 3}
   - {fileID: 21300000, guid: e99a472c8ecb25b4481eabe7231af18d, type: 3}
   - {fileID: 21300000, guid: 6df6d44c14d7523428afa215c34e82dd, type: 3}
   - {fileID: 21300000, guid: d0c5199c2f1166c4abbc53850c764d9c, type: 3}
+  - {fileID: 21300000, guid: 79ee993d1856fac4facf5e4742d1e7c9, type: 3}
   - {fileID: 21300000, guid: e616ef4deb1bfa242a1de697fb289d0c, type: 3}
   - {fileID: 21300000, guid: 87175f4e6191ee5489deda58bc9feecb, type: 3}
   - {fileID: 21300000, guid: e4395d0f9b0f36b48a92a64a5c19683d, type: 3}
@@ -194,7 +199,6 @@ SpriteAtlas:
   - sandstone_floor5
   - sandstone_floor6
   - white_marble4
-  - weapon_panel
   - white_marble9
   - Skully_2
   - Skully_3
@@ -205,8 +209,10 @@ SpriteAtlas:
   - Skully_4
   - Skully_5
   - Skully_8
+  - health_bar_border
   - EdIddleRight_1
   - EdIddleRight_0
+  - heart_icon
   - EdMoveDown_2
   - EdMoveDown_0
   - EdMoveDown_1
@@ -278,6 +284,7 @@ SpriteAtlas:
   - minimap_floor
   - sandstone_floor3
   - white_marble6
+  - windowskin
   - Pistol
   - white_marble3
   - sandstone_floor4
@@ -304,9 +311,12 @@ SpriteAtlas:
   - EdMoveUp_2
   - Half Height Collision Tile
   - white_marble2
+  - skull_icon
+  - WhiteSquare1x1
   - white_marble5
   - Cursor
   - white_marble8
+  - windowskin_transparent
   - Collision Tile
   - sandstone_floor8
   - sandstone_floor0
