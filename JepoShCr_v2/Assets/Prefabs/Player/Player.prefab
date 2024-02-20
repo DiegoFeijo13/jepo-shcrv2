@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6ca857eef3a754ca1812d2291685b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   isDamageable: 1
   enemy: {fileID: 0}
 --- !u!210 &7814897193867636802
@@ -438,6 +439,7 @@ MonoBehaviour:
   weaponReloadedEvent: {fileID: 0}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
+  playerControl: {fileID: 0}
 --- !u!114 &4342024858992541665
 MonoBehaviour:
   m_ObjectHideFlags: 0

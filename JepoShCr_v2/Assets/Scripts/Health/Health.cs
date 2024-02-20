@@ -102,12 +102,12 @@ public class Health : MonoBehaviour
 
         while (iterations > 0)
         {
-            tmpColor.a = 0f;
-            spriteRenderer.color = tmpColor;
+            //tmpColor.a = 0f;
+            spriteRenderer.color = Color.red;
 
             yield return waitForSecondsSpriteFlashInterval;
 
-            tmpColor.a = 1f;
+            //tmpColor.a = 1f;
             spriteRenderer.color = tmpColor;
 
             yield return waitForSecondsSpriteFlashInterval;

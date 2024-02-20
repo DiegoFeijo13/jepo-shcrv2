@@ -38,6 +38,10 @@ public class RoomLightingControl : MonoBehaviour
             // Fade in room
             FadeInRoomLighting();
 
+            instantiatedRoom.ActivateEnvironmentObjects();
+
+            FadeInEnvironmentLighting();
+
             // Fade in the room doors lighting
             FadeInDoors();
 
@@ -84,10 +88,43 @@ public class RoomLightingControl : MonoBehaviour
 
 
     }
+    
 
-    /// <summary>
-    /// Fade in the doors
-    /// </summary>
+    private void FadeInEnvironmentLighting()
+    {
+        var material = new Material(GameResources.Instance.variableLitShader);
+
+        var environmentComponents = GetComponentsInChildren<Environment>();
+
+
+        foreach (var envComponent in environmentComponents)
+        {
+            if(envComponent.spriteRenderer != null)
+            {
+                envComponent.spriteRenderer.material = material;
+            }
+        }
+
+        StartCoroutine(FadeInEnvironmentLightingRoutine(material, environmentComponents));
+    }
+
+    private IEnumerator FadeInEnvironmentLightingRoutine(Material material, Environment[] environmentComponents)
+    {
+        for (float i = 0.05f; i <= 1f; i += Time.deltaTime / Settings.fadeInTime)
+        {
+            material.SetFloat("Alpha_Slider", i);
+            yield return null;
+        }
+
+        foreach (var envComponent in environmentComponents)
+        {
+            if (envComponent.spriteRenderer != null)
+            {
+                envComponent.spriteRenderer.material = GameResources.Instance.litMaterial;
+            }
+        }
+    }
+
     private void FadeInDoors()
     {
         Door[] doorArray = GetComponentsInChildren<Door>();
