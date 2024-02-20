@@ -3,15 +3,9 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class Door : MonoBehaviour
 {
-    #region Header OBJECT REFERENCES
-    [Space(10)]
-    [Header("OBJECT REFERENCES")]
-    #endregion
 
-    #region Tooltip
-    [Tooltip("Populate this with the BoxCollider2D component on the DoorCollider gameobject")]
-    #endregion
     [SerializeField] private BoxCollider2D doorCollider;
+    [SerializeField] private GameObject doorSprite;
 
     [HideInInspector] public bool isBossRoomDoor = false;
     private BoxCollider2D doorTrigger;
@@ -20,10 +14,9 @@ public class Door : MonoBehaviour
 
     private void Awake()
     {
-        // disable door collider by default
         doorCollider.enabled = false;
-
-        // Load components
+        doorSprite.SetActive(false);
+        
         doorTrigger = GetComponent<BoxCollider2D>();
     }
 
@@ -35,11 +28,6 @@ public class Door : MonoBehaviour
         }
     }
 
-
-
-    /// <summary>
-    /// Open the door
-    /// </summary>
     public void OpenDoor()
     {
         if (!isOpen)
@@ -48,6 +36,7 @@ public class Door : MonoBehaviour
             previouslyOpened = true;
             doorCollider.enabled = false;
             doorTrigger.enabled = false;
+            doorSprite.SetActive(false);
 
 
             // play sound effect
@@ -55,23 +44,18 @@ public class Door : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Lock the door
-    /// </summary>
     public void LockDoor()
     {
         isOpen = false;
         doorCollider.enabled = true;
+        doorSprite.SetActive(true);
         doorTrigger.enabled = false;
-
     }
 
-    /// <summary>
-    /// Unlock the door
-    /// </summary>
     public void UnlockDoor()
     {
         doorCollider.enabled = false;
+        doorSprite.SetActive(false);
         doorTrigger.enabled = true;
 
         if (previouslyOpened == true)
@@ -86,6 +70,7 @@ public class Door : MonoBehaviour
     private void OnValidate()
     {
         HelperUtilities.ValidateCheckNullValue(this, nameof(doorCollider), doorCollider);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(doorSprite), doorSprite);
     }
 #endif
     #endregion

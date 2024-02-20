@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_EnemyMaterialise_Green
+  m_Name: DoorShaderMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 5fec8f8e6ea244648a3c6ede24a56288, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -42,5 +42,5 @@ Material:
     - _EffectSpeed: 20
     - _Scale: 43.8
     m_Colors:
-    - _EmissionColor: {r: 0, g: 25.688938, b: 0.26899412, a: 0}
+    - _EmissionColor: {r: 4.853313, g: 0.16025099, b: 3.0202916, a: 0}
   m_BuildTextureStacks: []

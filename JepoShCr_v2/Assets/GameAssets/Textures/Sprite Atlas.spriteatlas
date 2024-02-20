@@ -146,6 +146,10 @@ SpriteAtlas:
   - {fileID: 915470339915637218, guid: a2adb6531494fc44380865663d188610, type: 3}
   - {fileID: -6770107989466350373, guid: a2adb6531494fc44380865663d188610, type: 3}
   - {fileID: 21300000, guid: c26f7fc3b1773a641abc9cf53a88e53c, type: 3}
+  - {fileID: 6950709768184568528, guid: e18930e3d05eb0942988622ce1b936aa, type: 3}
+  - {fileID: 837017221450738011, guid: e18930e3d05eb0942988622ce1b936aa, type: 3}
+  - {fileID: -8553596595128423742, guid: e18930e3d05eb0942988622ce1b936aa, type: 3}
+  - {fileID: 330400763883709057, guid: e18930e3d05eb0942988622ce1b936aa, type: 3}
   - {fileID: 21300000, guid: 640bc7e3fb4fdfc4d9f0a8f1989ba069, type: 3}
   - {fileID: 21300000, guid: db49f8f4b7c88af46811bf606249679b, type: 3}
   - {fileID: 21300000, guid: 2134b0d575f169740988cfeef79930e5, type: 3}
@@ -188,6 +192,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6b27a03f6517b814aa33a66cf384b27c, type: 3}
   - {fileID: 21300000, guid: b6113e6f9f1ce424c89a46483c6fe35b, type: 3}
   - {fileID: 21300000, guid: c8a5739f6d91e1d498baea706bd4fd56, type: 3}
+  - {fileID: 21300000, guid: a8ee2cdf947d6454595e9480c5c99a2b, type: 3}
   m_PackedSpriteNamesToIndex:
   - white_marble7
   - EdIddleUp_0
@@ -283,6 +288,10 @@ SpriteAtlas:
   - dungeon0x72_41
   - dungeon0x72_40
   - minimap_floor
+  - Torch_2
+  - Torch_3
+  - Torch_0
+  - Torch_1
   - sandstone_floor3
   - white_marble6
   - windowskin
@@ -325,6 +334,7 @@ SpriteAtlas:
   - white_marble0
   - white_marble1
   - sandstone_floor9
+  - Flame
   m_RenderDataMap: {}
   m_Tag: Sprite Atlas
   m_IsVariant: 0
